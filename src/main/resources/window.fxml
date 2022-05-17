@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          fx:controller="com.riguz.jasypt.MainWindowController">
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25"/>
+    </padding>
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3">
+        Automatically encrypt field marked as ENC(plain) to ENC(encrypted) with PBEWithHMACSHA512AndAES_256
+    </Label>
+    <Label fx:id="passwordLabel" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="passwordText" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2"/>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" spacing="5" alignment="BASELINE_LEFT">
+        <Button fx:id="generatePasswordButton" text="Random Password" onAction="#onRandomPassword"/>
+
+    </HBox>
+    <HBox GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" spacing="5" alignment="BASELINE_RIGHT">
+
+        <Label fx:id="checkboxLabel" text="Encrypt `ENC(...)` text only"></Label>
+        <CheckBox fx:id="onlyEncCheckbox"></CheckBox>
+        <Button fx:id="encryptButton" text="Encrypt" prefWidth="100" onAction="#onEncrypt"/>
+        <Button fx:id="decryptButton" text="Decrypt" onAction="#onDecrypt"/>
+        <Button fx:id="exchangeButton" text="Exchange Output" onAction="#onExchange"/>
+    </HBox>
+
+    <TextArea fx:id="inputText" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3" wrapText="true"/>
+    <TextArea fx:id="outputText" editable="false" GridPane.columnIndex="0" GridPane.columnSpan="3"
+              GridPane.rowIndex="4" wrapText="true"/>
+    <columnConstraints>
+        <ColumnConstraints hgrow="NEVER"/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+        <ColumnConstraints hgrow="NEVER"/>
+        <ColumnConstraints hgrow="NEVER"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints vgrow="ALWAYS"/>
+    </rowConstraints>
+</GridPane>
